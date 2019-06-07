@@ -27,7 +27,7 @@ custom:
   defaultStage: dev
   defaultProfile: default
   defaultRegion: ap-northeast-1
-  storeBucketName: botkit-store-bucket
+  storeBucketName: botkit-store-bucket2-${self:provider.stage}
   webpack:
     includeModules: true
 
@@ -40,7 +40,7 @@ functions:
           path: api/messages
           method: post
     environment:
-      STORE_BUCKET: ${self:custom.storeBucketName}
+      STORE_BUCKET: !Ref StoreBucket
       CLIENT_SIGNING_SECRET: ${file(../../setting.yml):CLIENT_SIGNING_SECRET}
       BOT_TOKEN: ${file(../../setting.yml):BOT_TOKEN}
       VERIFICATION_TOKEN: ${file(../../setting.yml):VERIFICATION_TOKEN}
@@ -49,5 +49,5 @@ resources:
   Resources:
     StoreBucket:
       Type: AWS::S3::Bucket
-      Properties:
-        BucketName: ${self:custom.storeBucketName}
+      # Properties:
+      #   BucketName: ${self:custom.storeBucketName}

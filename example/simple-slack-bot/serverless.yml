@@ -27,7 +27,7 @@ custom:
   defaultStage: dev
   defaultProfile: default
   defaultRegion: ap-northeast-1
-  storeBucketName: botkit-store-bucket
+  storeBucketName: !Ref StoreBucket
   webpack:
     includeModules: true
 
@@ -49,5 +49,5 @@ resources:
   Resources:
     StoreBucket:
       Type: AWS::S3::Bucket
-      Properties:
-        BucketName: ${self:custom.storeBucketName}
+      # Properties:
+      #   BucketName: ${self:custom.storeBucketName}
