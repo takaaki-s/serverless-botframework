@@ -1,0 +1,14 @@
+{
+  "name": "botframework-s3storage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "s3storage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Takaaki Sato (https://github.com/takaaki-s/serverless-botframework)",
+  "license": "MIT",
+  "dependencies": {
+    "botbuilder-core": "^4.4.0"
+  }
+}

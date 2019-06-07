@@ -1,0 +1,53 @@
+service:
+  name: serverless-slackbot
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: ${opt:region, self:custom.defaultRegion}
+  profile: ${opt:profile, self:custom.defaultProfile}
+  stage: ${opt:stage, self:custom.defaultStage}
+  logRetentionInDays: 30
+
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:*"
+      Resource:
+        Fn::Join:
+          - ""
+          - - !GetAtt StoreBucket.Arn
+            - "/*"
+
+custom:
+  defaultStage: dev
+  defaultProfile: default
+  defaultRegion: ap-northeast-1
+  storeBucketName: botkit-store-bucket
+  webpack:
+    includeModules: true
+
+functions:
+  hello:
+    handler: src/index.entrypoint
+    timeout: 20
+    events:
+      - http:
+          path: api/messages
+          method: post
+    environment:
+      STORE_BUCKET: ${self:custom.storeBucketName}
+      CLIENT_SIGNING_SECRET: ${file(../../setting.yml):CLIENT_SIGNING_SECRET}
+      BOT_TOKEN: ${file(../../setting.yml):BOT_TOKEN}
+      VERIFICATION_TOKEN: ${file(../../setting.yml):VERIFICATION_TOKEN}
+
+resources:
+  Resources:
+    StoreBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.storeBucketName}

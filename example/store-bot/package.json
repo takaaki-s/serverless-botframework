@@ -1,0 +1,32 @@
+{
+  "name": "lambda-botframework-example",
+  "version": "1.0.0",
+  "description": "Serverless webpack example using Typescript",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.469.0",
+    "aws-serverless-express": "^3.3.6",
+    "body-parser": "^1.19.0",
+    "botbuilder": "^4.4.0",
+    "botbuilder-adapter-slack": "^1.0.3",
+    "botbuilder-core": "^4.4.0",
+    "botframework-s3storage": "file:../../s3storage",
+    "prettier": "^1.17.1",
+    "source-map-support": "^0.5.10"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.17",
+    "@types/aws-serverless-express": "^3.3.1",
+    "@types/node": "^10.12.18",
+    "serverless-webpack": "^5.2.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.29.0",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
+  "license": "MIT"
+}
