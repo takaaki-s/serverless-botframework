@@ -13,7 +13,7 @@
     "botbuilder": "^4.4.0",
     "botbuilder-adapter-slack": "^1.0.3",
     "botbuilder-core": "^4.4.0",
-    "botframework-s3storage": "file:../../s3storage",
+    "botframework-s3storage": "0.0.1",
     "prettier": "^1.17.1",
     "source-map-support": "^0.5.10"
   },

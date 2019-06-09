@@ -1,9 +1,8 @@
 import * as express from 'express';
 import * as awsServerlessExpress from 'aws-serverless-express';
 import app from '../../../app';
-import { ConversationState } from 'botbuilder';
+import { ConversationState, MemoryStorage } from 'botbuilder';
 import { SlackAdapter, SlackEventMiddleware } from 'botbuilder-adapter-slack';
-import S3Storage from 'botframework-s3storage';
 import ExampleSlackBot from './simple-slack-bot';
 
 const router = express.Router();
@@ -15,8 +14,8 @@ const adapter = new SlackAdapter({
 });
 
 adapter.use(new SlackEventMiddleware());
-const s3Storage = new S3Storage(process.env.STORE_BUCKET);
-const conversationState = new ConversationState(s3Storage);
+const memoryStorage = new MemoryStorage();
+const conversationState = new ConversationState(memoryStorage);
 
 // Catch-all for errors.
 adapter.onTurnError = async (context, error) => {
