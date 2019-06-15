@@ -1,0 +1,4 @@
+# ここにSlackの接続情報を記載してください
+CLIENT_SIGNING_SECRET: ''
+BOT_TOKEN: ''
+VERIFICATION_TOKEN: ''

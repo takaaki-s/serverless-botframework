@@ -30,6 +30,6 @@ functions:
           path: api/messages
           method: post
     environment:
-      CLIENT_SIGNING_SECRET: ${file(../../setting.yml):CLIENT_SIGNING_SECRET}
-      BOT_TOKEN: ${file(../../setting.yml):BOT_TOKEN}
-      VERIFICATION_TOKEN: ${file(../../setting.yml):VERIFICATION_TOKEN}
+      CLIENT_SIGNING_SECRET: ${file(./setting.yml):CLIENT_SIGNING_SECRET}
+      BOT_TOKEN: ${file(./setting.yml):BOT_TOKEN}
+      VERIFICATION_TOKEN: ${file(./setting.yml):VERIFICATION_TOKEN}
