@@ -13,16 +13,6 @@ provider:
   stage: ${opt:stage, self:custom.defaultStage}
   logRetentionInDays: 30
 
-  iamRoleStatements:
-    - Effect: "Allow"
-      Action:
-        - "s3:*"
-      Resource:
-        Fn::Join:
-          - ""
-          - - !GetAtt StoreBucket.Arn
-            - "/*"
-
 custom:
   defaultStage: dev
   defaultProfile: default

@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as awsServerlessExpress from 'aws-serverless-express';
-import app from '../../../app';
+import app from './app';
 import { ConversationState, MemoryStorage } from 'botbuilder';
 import { SlackAdapter, SlackEventMiddleware } from 'botbuilder-adapter-slack';
 import ExampleSlackBot from './simple-slack-bot';
