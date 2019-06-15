@@ -17,7 +17,6 @@ custom:
   defaultStage: dev
   defaultProfile: default
   defaultRegion: ap-northeast-1
-  storeBucketName: !Ref StoreBucket
   webpack:
     includeModules: true
 
